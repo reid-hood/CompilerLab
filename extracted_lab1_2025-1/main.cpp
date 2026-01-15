@@ -56,6 +56,7 @@ int main(int argc, char **argv)
         }
     }
 
+    std::cout << "<?xml version=\"1.0\"?>\n";
     std::cout << "<program>\n";
 
     token = yylex();
@@ -77,36 +78,36 @@ int main(int argc, char **argv)
 
             // this will either be the one found above or the one created
             // in the scanner.
-            std::cout << yylval.symbol->ToString() << "\n";
+            std::cout << "  " << yylval.symbol->ToString() << "\n";
         }
         else if (token == LOCAL)
         {
-            std::cout << "<local />\n";
+            std::cout << "  <local/>\n";
             g_local = 1;
         }
         else if (token == GLOBAL)
         {
-            std::cout << "<global />\n";
+            std::cout << "  <global/>\n";
             g_local = 0;
         }
         else if (token == LOOKUP)
         {
-            std::cout << "<lookup />\n";
+            std::cout << "  <lookup/>\n";
             g_insert = 0;
         }
         else if (token == INSERT)
         {
-            std::cout << "<insert />\n";
+            std::cout << "  <insert/>\n";
             g_insert = 1;
         }
         else if (token == OPEN)
         {
-            std::cout << "<open />\n";
+            std::cout << "  <open/>\n";
             g_symbolTable.IncreaseScope();
         }
         else if (token == CLOSE)
         {
-            std::cout << "<close />\n";
+            std::cout << "  <close/>\n";
             g_symbolTable.DecreaseScope();
         }
         token = yylex();

@@ -9,6 +9,8 @@
 #include <unordered_map>
 #include <vector>
 
+using std::string;
+
 typedef std::unordered_map<std::string, class cSymbol *> symbolTable_t;
 
 class cSymbolTable
