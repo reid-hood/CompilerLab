@@ -32,7 +32,7 @@ int main(int argc, char **argv)
     int result = 0;
     int token;
 
-    std::cout << "Philip Howard" << std::endl;
+    std::cout << "Reid Hood" << std::endl;
 
     // open input
     if (argc > 1)

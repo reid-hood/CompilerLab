@@ -10,47 +10,55 @@
 #
 
 
-# Windows-only Makefile (MSVC)
-# Assumes: building from Developer Command Prompt or VS tools initialized, and `flex` is available in PATH.
+# Cross-platform Makefile for lang compiler
+# Works with MinGW/GCC on Windows (via MSYS2) and Unix-like systems
+# Requires: g++, flex
 
-RM = del /Q
-OBJEXT = .obj
+RM = rm -f
+OBJEXT = .o
 OUTEXE = lang.exe
 
-CXX = cl
-CXXFLAGS = /nologo /W3 /EHsc /MD /Zi
-LNK = link
-LNKFLAGS = /nologo /OUT:$(OUTEXE)
+CXX = g++
+CXXFLAGS = -std=c++17 -I. -Wall
+CFLAGS = -D_POSIX_C_SOURCE=200809L
+LDFLAGS = -o $(OUTEXE)
 
 OBJS = main$(OBJEXT) langlex$(OBJEXT) cSymbol$(OBJEXT) cSymbolTable$(OBJEXT)
 
 all: $(OUTEXE)
 
-clean:
-    $(RM) $(OBJS) 2>nul || @echo.
-    $(RM) langlex.c 2>nul || @echo.
-    $(RM) $(OUTEXE) 2>nul || @echo.
-    $(RM) out.xml 2>nul || @echo.
-    $(RM) out2.xml 2>nul || @echo.
-
-# Generate lexer source using flex (assumes flex.exe is available on PATH)
+# Generate lexer source using flex
 langlex.c: lang.l
-    flex -o langlex.c lang.l
+	flex -o langlex.c lang.l
 
-# Compile C++ source files to .obj
+clean:
+	$(RM) $(OBJS)
+	$(RM) langlex.c
+	$(RM) $(OUTEXE)
+	$(RM) test/out*.xml
+
+test: $(OUTEXE)
+	./$(OUTEXE) test/test1.lang test/out1.xml
+	./$(OUTEXE) test/test2.lang test/out2.xml
+	./$(OUTEXE) test/test3.lang test/out3.xml
+	./$(OUTEXE) test/test4.lang test/out4.xml
+
+.PHONY: all clean test
+
+# Compile C++ source files to .o
 main$(OBJEXT): main.cpp langlex.c cSymbol.cpp cSymbolTable.cpp
-    $(CXX) $(CXXFLAGS) /c main.cpp /Fo$@
+	$(CXX) $(CXXFLAGS) -c main.cpp -o $@
 
 langlex$(OBJEXT): langlex.c
-    $(CXX) $(CXXFLAGS) /c langlex.c /Fo$@
+	$(CXX) $(CXXFLAGS) $(CFLAGS) -x c++ -c langlex.c -o $@
 
 cSymbol$(OBJEXT): cSymbol.cpp
-    $(CXX) $(CXXFLAGS) /c cSymbol.cpp /Fo$@
+	$(CXX) $(CXXFLAGS) -c cSymbol.cpp -o $@
 
 cSymbolTable$(OBJEXT): cSymbolTable.cpp cSymbol.h cSymbolTable.h
-    $(CXX) $(CXXFLAGS) /c cSymbolTable.cpp /Fo$@
+	$(CXX) $(CXXFLAGS) -c cSymbolTable.cpp -o $@
 
 $(OUTEXE): $(OBJS)
-    $(LNK) $(LNKFLAGS) $(OBJS)
+	$(CXX) $(LDFLAGS) $(OBJS)
 
 .PHONY: all clean
