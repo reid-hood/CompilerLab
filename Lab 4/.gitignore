@@ -1,0 +1,22 @@
+# Build artifacts
+*.o
+lang
+lang_asan
+
+# Generated parser/lexer sources
+langlex.c
+langparse.c
+langparse.h
+
+# Test outputs
+out.xml
+out2.xml
+
+# XML output dumps
+xml_outputs/
+
+# Legacy dot-output files
+.out*
+
+# Test helper scripts
+*.sh
