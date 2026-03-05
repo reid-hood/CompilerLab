@@ -4,11 +4,13 @@
         {
             "label": "Run Make",
             "type": "shell",
-            "command": "C:\\msys64\\usr\\bin\\bash.exe",
+            "command": "wsl",
             "args": [
-                "-lc",
                 "make"
             ],
+            "options": {
+                "cwd": "${workspaceFolder}/Lab 5"
+            },
             "group": {
                 "kind": "build",
                 "isDefault": true
