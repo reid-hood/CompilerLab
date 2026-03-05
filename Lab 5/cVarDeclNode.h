@@ -28,6 +28,12 @@ class cVarDeclNode : public cDeclNode
         }
 
         virtual bool IsVar() { return true; }
+
+        virtual bool IsArray()
+        {
+            if (m_type == nullptr || m_type->GetDecl() == nullptr) return false;
+            return m_type->GetDecl()->IsArray();
+        }
         
         virtual cDeclNode *GetType() 
         { 
@@ -36,7 +42,8 @@ class cVarDeclNode : public cDeclNode
             return decl ? decl->GetType() : nullptr;
         }
 
-        virtual cSymbol *GetName() { return m_name; }
+        virtual string GetName() { return (m_name != nullptr) ? m_name->GetName() : string(""); }
+        cSymbol *GetNameSym() { return m_name; }
 
         virtual string NodeType() { return string("var_decl"); }
         virtual void Visit(cVisitor *visitor) { visitor->Visit(this); }

@@ -31,7 +31,8 @@ class cArrayDeclNode : public cDeclNode
             return decl ? decl->GetType() : nullptr;
         }
 
-        virtual cSymbol *GetName() { return m_name; }
+        virtual string GetName() { return (m_name != nullptr) ? m_name->GetName() : string(""); }
+        cSymbol *GetNameSym() { return m_name; }
 
         virtual string NodeType() { return string("array_decl"); }
         virtual string AttributesToString() { return string(" count=\"") + std::to_string(m_count) + "\""; }

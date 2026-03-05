@@ -95,8 +95,12 @@ static bool g_semanticErrorHappened = false;
 %type <ast_node> params
 %type <ast_node> param
 %type <expr_node> expr
+%type <expr_node> logic_and
+%type <expr_node> equality
+%type <expr_node> relational
 %type <expr_node> addit
 %type <expr_node> term
+%type <expr_node> unary
 %type <expr_node> fact
 %type <expr_node> varref
 %type <symbol> varpart
@@ -522,8 +526,31 @@ params:   params ',' param
 param:      expr
                                 { $$ = $1; }
 
-expr:       expr EQUALS addit
+expr:       expr OR logic_and
+                                { $$ = new cBinaryExprNode($1, new cOpNode(OR), $3); }
+        |   logic_and
+                            { $$ = $1; }
+
+logic_and:  logic_and AND equality
+                                { $$ = new cBinaryExprNode($1, new cOpNode(AND), $3); }
+        |   equality
+                            { $$ = $1; }
+
+equality:   equality EQUALS relational
                                 { $$ = new cBinaryExprNode($1, new cOpNode(EQUALS), $3); }
+        |   equality NOT_EQUALS relational
+                                { $$ = new cBinaryExprNode($1, new cOpNode(NOT_EQUALS), $3); }
+        |   relational
+                            { $$ = $1; }
+
+relational: relational '>' addit
+                                { $$ = new cBinaryExprNode($1, new cOpNode('>'), $3); }
+        |   relational '<' addit
+                                { $$ = new cBinaryExprNode($1, new cOpNode('<'), $3); }
+        |   relational GE addit
+                                { $$ = new cBinaryExprNode($1, new cOpNode(GE), $3); }
+        |   relational LE addit
+                                { $$ = new cBinaryExprNode($1, new cOpNode(LE), $3); }
         |   addit
                             { $$ = $1; }
 
@@ -534,14 +561,19 @@ addit:      addit '+' term
         |   term
                             { $$ = $1; }
 
-term:       term '*' fact
-                                { $$ = new cBinaryExprNode($1, new cOpNode('*'), $3); }
-        |   term '/' fact
-                            { $$ = new cBinaryExprNode($1, new cOpNode('/'), $3); }
-        |   term '%' fact
-                            { $$ = new cBinaryExprNode($1, new cOpNode('%'), $3); }
-        |   fact
+term:       term '*' unary
+                { $$ = new cBinaryExprNode($1, new cOpNode('*'), $3); }
+    |   term '/' unary
+                { $$ = new cBinaryExprNode($1, new cOpNode('/'), $3); }
+    |   term '%' unary
+                { $$ = new cBinaryExprNode($1, new cOpNode('%'), $3); }
+    |   unary
                             { $$ = $1; }
+
+unary:      '-' unary
+                { $$ = new cBinaryExprNode(new cIntExprNode(0), new cOpNode('-'), $2); }
+    |   fact
+                { $$ = $1; }
 
 fact:       '(' expr ')'
                                 { $$ = $2; }
@@ -552,7 +584,7 @@ fact:       '(' expr ')'
         |   varref
                             { $$ = $1; }
         |   func_call
-                            {  }
+                            { $$ = static_cast<cExprNode*>($1); }
 
 %%
 

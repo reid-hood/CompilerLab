@@ -23,6 +23,11 @@ class cArgsNode : public cAstNode
             return NumChildren();
         }
 
+        cDeclNode *GetArgDecl(int index)
+        {
+            return static_cast<cDeclNode*>(GetChild(index));
+        }
+
         virtual string NodeType() { return string("args"); }
         virtual void Visit(cVisitor *visitor) { visitor->Visit(this); }
 };

@@ -20,6 +20,8 @@ class cProgramNode : public cAstNode
             AddChild(block);
         }
 
+        cBlockNode *GetBlock() { return static_cast<cBlockNode*>(GetChild(0)); }
+
         virtual string NodeType() { return string("program"); }
         virtual void Visit(cVisitor *visitor) { visitor->Visit(this); }
 };

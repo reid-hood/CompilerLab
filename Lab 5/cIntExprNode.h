@@ -48,6 +48,7 @@ class cIntExprNode : public cExprNode
         {
             return " value=\"" + std::to_string(m_value) + "\"";
         }
+        int GetValue() { return m_value; }
         virtual string NodeType() { return string("int"); }
         virtual void Visit(cVisitor *visitor) { visitor->Visit(this); }
     protected:

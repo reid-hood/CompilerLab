@@ -32,7 +32,10 @@ class cStructDeclNode : public cDeclNode
         
         virtual cDeclNode *GetType() { return this; }
 
-        virtual cSymbol *GetName() { return m_name; }
+        cDeclsNode *GetDecls() { return static_cast<cDeclsNode*>(GetChild(0)); }
+
+        virtual string GetName() { return (m_name != nullptr) ? m_name->GetName() : string(""); }
+        cSymbol *GetNameSym() { return m_name; }
 
         virtual string NodeType() { return string("struct_decl"); }
         virtual void Visit(cVisitor *visitor) { visitor->Visit(this); }

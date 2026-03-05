@@ -9,6 +9,8 @@
 #include "cExprNode.h"
 #include "cSymbol.h"
 
+class cExprNode;
+
 class cVarExprNode : public cExprNode
 {
     public:
@@ -48,6 +50,10 @@ class cVarExprNode : public cExprNode
             }
             return nullptr;
         }
+
+        cSymbol *GetBaseSymbol() { return m_baseSym; }
+        int GetPartCount() { return NumChildren(); }
+        cAstNode *GetPart(int index) { return GetChild(index); }
 
         virtual string NodeType() { return string("varref"); }
         virtual void Visit(cVisitor *visitor) { visitor->Visit(this); }

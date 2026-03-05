@@ -21,11 +21,11 @@ class cFloatExprNode : public cExprNode
 
         virtual cDeclNode *GetType()
         {
-            // Float constants are doubles
-            cSymbol *doubleSym = g_symbolTable.Find("double");
-            if (doubleSym != nullptr)
+            // In this lab, FLOAT_VAL tokens are treated as float (not double).
+            cSymbol *floatSym = g_symbolTable.Find("float");
+            if (floatSym != nullptr)
             {
-                return doubleSym->GetDecl();
+                return floatSym->GetDecl();
             }
             return nullptr;
         }
@@ -36,6 +36,8 @@ class cFloatExprNode : public cExprNode
             ss << std::fixed << std::setprecision(6) << m_value;
             return string(" value=\"") + ss.str() + "\"";
         }
+
+        double GetValue() { return m_value; }
 
         virtual string NodeType() { return string("float"); }
         virtual void Visit(cVisitor *visitor) { visitor->Visit(this); }

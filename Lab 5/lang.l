@@ -65,7 +65,7 @@ return                      { DO_RETURN(RETURN); }
 "||"                     { yylval.int_val = '|'; DO_RETURN(OR); }
 [ \t\r\n]+               { /* skip whitespace */ }
 
-[{};()\[\].,+\-*/%=]     { DO_RETURN(yytext[0]); }
+[{};()\[\].,+\-*/%=<>]   { DO_RETURN(yytext[0]); }
 
 %%
 

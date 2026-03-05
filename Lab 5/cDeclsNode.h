@@ -26,6 +26,9 @@ class cDeclsNode : public cAstNode
             AddChild(decl);
         }
 
+        int GetDeclCount() { return NumChildren(); }
+        cDeclNode *GetDecl(int index) { return static_cast<cDeclNode*>(GetChild(index)); }
+
         virtual string NodeType() { return string("decls"); }
         virtual void Visit(cVisitor *visitor) { visitor->Visit(this); }
 };

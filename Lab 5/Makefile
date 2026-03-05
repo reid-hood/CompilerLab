@@ -9,11 +9,12 @@
 ## Date: Jan. 18, 2015
 ##
 
-COPTS=-Wall -g -c -O0 -std=c++11
+COPTS=-Wall -g -c -O0 -std=c++11 -DLAB5B
 OBJS=main.o \
 	 langlex.o \
 	 langparse.o \
 	 cVisitor.o \
+	 cSemanticVisitor.o \
 	 cSymbolTable.o
 
 all: lang

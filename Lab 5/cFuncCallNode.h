@@ -20,6 +20,13 @@ class cFuncCallNode : public cAstNode
             }
         }
 
+        cSymbol *GetFuncSymbol() { return static_cast<cSymbol*>(GetChild(0)); }
+        cParamsNode *GetParams()
+        {
+            if (NumChildren() > 1) return static_cast<cParamsNode*>(GetChild(1));
+            return nullptr;
+        }
+
         virtual string NodeType() { return string("funcCall"); }
         virtual void Visit(cVisitor *visitor) { visitor->Visit(this); }
 };

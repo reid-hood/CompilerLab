@@ -17,6 +17,7 @@
 //#include "cSymbolTable.h"
 #include "lex.h"
 #include "astnodes.h"
+#include "cSemanticVisitor.h"
 #include "cSymbolTable.h"
 #include "langparse.h"
 
@@ -95,6 +96,18 @@ int main(int argc, char **argv)
 
     std::cerr << "MAIN: About to call yyparse()\n";
     result = yyparse();
+
+#ifdef LAB5B
+    if (result == 0 && yyast_root != nullptr)
+    {
+        cSemanticVisitor semanticVisitor;
+        semanticVisitor.VisitAllNodes(yyast_root);
+
+        if (yynerrs > 0)
+            result = 1;
+    }
+#endif
+
     if (yyast_root != nullptr)
     {
         if (result == 0)
