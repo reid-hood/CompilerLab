@@ -1,0 +1,29 @@
+# Build artifacts
+*.o
+*.obj
+*.out
+*.exe
+
+# Main lab binary
+/lang
+
+# Generated parser/lexer files
+langlex.c
+langparse.c
+langparse.h
+
+# Debug and runtime artifacts
+*.dSYM/
+*.stackdump
+core
+core.*
+*.log
+
+# Local archives
+*.tar
+*.tgz
+*.zip
+
+# Editor/OS noise
+.DS_Store
+Thumbs.db
