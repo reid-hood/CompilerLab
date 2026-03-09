@@ -1,0 +1,14 @@
+# Build outputs
+lang
+*.o
+
+# Local test artifacts
+out.xml
+out2.xml
+/tmp/*.xml
+
+# Misc
+*.log
+
+# Local helper scripts
+*.sh

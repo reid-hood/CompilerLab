@@ -9,7 +9,7 @@
                 "make"
             ],
             "options": {
-                "cwd": "${workspaceFolder}/Lab 5"
+                "cwd": "${workspaceFolder}/Lab 6"
             },
             "group": {
                 "kind": "build",
