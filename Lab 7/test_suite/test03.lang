@@ -1,0 +1,6 @@
+// Reid Hood - Test basic arithmetic: addition and subtraction
+program
+{
+    print(2 + 3);
+    print(10 - 4);
+}

@@ -1,0 +1,12 @@
+// Reid Hood - Test equality operators: ==, !=
+program
+{
+    int x;
+    int y;
+    x = 42;
+    y = 42;
+    print(x == y);
+    print(x == 50);
+    print(x != y);
+    print(x != 50);
+}

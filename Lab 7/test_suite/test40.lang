@@ -1,0 +1,14 @@
+// Reid Hood - Test boundary conditions in loops
+program
+{
+    int i;
+    i = 0;
+    
+    while (i <= 3)
+    {
+        print(i);
+        i = i + 1;
+    }
+    
+    print(100);
+}

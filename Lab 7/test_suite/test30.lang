@@ -1,0 +1,23 @@
+// Reid Hood - Test array in loop with sum calculation
+program
+{
+    array int [5] nums;
+    int i;
+    int sum;
+    
+    nums[0] = 10;
+    nums[1] = 20;
+    nums[2] = 30;
+    nums[3] = 40;
+    nums[4] = 50;
+    
+    sum = 0;
+    i = 0;
+    while (i < 5)
+    {
+        sum = sum + nums[i];
+        i = i + 1;
+    }
+    
+    print(sum);
+}

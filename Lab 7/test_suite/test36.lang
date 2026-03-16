@@ -1,0 +1,13 @@
+// Reid Hood - Test logical operators combined with comparison
+program
+{
+    int x;
+    int y;
+    x = 10;
+    y = 5;
+    
+    print((x > 5) && (y < 10));
+    print((x > 15) || (y == 5));
+    print((x == 10) && (y != 5));
+    print((x < 5) || (y > 10));
+}

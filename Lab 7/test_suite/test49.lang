@@ -1,0 +1,24 @@
+// Reid Hood - Test power-like calculation through multiplication
+program
+{
+    int power(int base, int exp)
+    {
+        int result;
+        int count;
+
+        result = 1;
+        count = 0;
+
+        while (count < exp)
+        {
+            result = result * base;
+            count = count + 1;
+        }
+
+        return result;
+    }
+
+    print(power(2, 0));
+    print(power(2, 3));
+    print(power(3, 3));
+}

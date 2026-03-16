@@ -1,0 +1,12 @@
+// Reid Hood - Test IF-ELSE statement
+program
+{
+    int x;
+    x = 2;
+    if (x > 3)
+        print(100);
+    else
+        print(200);
+    endif;
+    print(300);
+}

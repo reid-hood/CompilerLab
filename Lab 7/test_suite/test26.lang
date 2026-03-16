@@ -1,0 +1,21 @@
+// Reid Hood - Test function with control flow and loop
+program
+{
+    int factorial(int n)
+    {
+        int result;
+        int i;
+        result = 1;
+        i = 1;
+        while (i <= n)
+        {
+            result = result * i;
+            i = i + 1;
+        }
+        return result;
+    }
+
+    print(factorial(0));
+    print(factorial(1));
+    print(factorial(5));
+}

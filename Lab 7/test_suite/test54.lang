@@ -1,0 +1,24 @@
+// Reid Hood - Test struct with multiple instances and field operations
+// Tests struct fields as both lval and rval, with modification
+program
+{
+    struct {
+        int val;
+        int next;
+    } Node;
+    
+    Node a;
+    Node b;
+    
+    a.val = 10;
+    a.next = 0;
+    b.val = 20;
+    b.next = 1;
+    
+    print(a.val);
+    print(b.val);
+    
+    // Use struct fields in calculations
+    a.val = a.val + b.val;
+    print(a.val);
+}

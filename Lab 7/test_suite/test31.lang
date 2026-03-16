@@ -1,0 +1,27 @@
+// Reid Hood - Test array element modification in loop
+program
+{
+    array int [5] values;
+    int i;
+    
+    i = 0;
+    while (i < 5)
+    {
+        values[i] = 10;
+        i = i + 1;
+    }
+    
+    i = 0;
+    while (i < 5)
+    {
+        values[i] = values[i] * 2;
+        i = i + 1;
+    }
+    
+    i = 0;
+    while (i < 5)
+    {
+        print(values[i]);
+        i = i + 1;
+    }
+}

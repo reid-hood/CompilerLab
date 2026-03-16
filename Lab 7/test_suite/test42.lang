@@ -1,0 +1,21 @@
+// Reid Hood - Test variable shadowing between functions
+program
+{
+    int get_value()
+    {
+        return 999;
+    }
+
+    int use_value(int val)
+    {
+        int local;
+        local = val + 1;
+        return local;
+    }
+
+    int x;
+    x = 100;
+    print(get_value());
+    print(use_value(x));
+    print(x);
+}

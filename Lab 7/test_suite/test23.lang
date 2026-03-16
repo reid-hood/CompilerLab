@@ -1,0 +1,16 @@
+// Reid Hood - Test function with multiple parameters
+program
+{
+    int add(int a, int b)
+    {
+        return a + b;
+    }
+
+    int multiply_add(int x, int y, int z)
+    {
+        return x * y + z;
+    }
+
+    print(add(3, 7));
+    print(multiply_add(2, 3, 4));
+}

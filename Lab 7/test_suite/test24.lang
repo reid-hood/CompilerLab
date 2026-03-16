@@ -1,0 +1,14 @@
+// Reid Hood - Test function with local variables
+program
+{
+    int compute(int x)
+    {
+        int result;
+        int temp;
+        temp = x * 2;
+        result = temp + 10;
+        return result;
+    }
+
+    print(compute(5));
+}

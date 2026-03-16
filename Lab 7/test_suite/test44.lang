@@ -1,0 +1,18 @@
+// Reid Hood - Test if with compound logical conditions
+program
+{
+    int val;
+    val = 7;
+    
+    if ((val > 5) && (val < 10))
+        print(1);
+    endif;
+    
+    if ((val > 5) && (val < 5))
+        print(2);
+    endif;
+    
+    if ((val == 7) || (val == 8))
+        print(3);
+    endif;
+}

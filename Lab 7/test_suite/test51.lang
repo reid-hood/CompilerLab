@@ -1,0 +1,10 @@
+// Reid Hood - Test char variable declaration, assignment, and print
+// This tests that char uses 1-byte operations (PUSHCVAR/POPCVAR)
+program
+{
+    char c;
+    c = 65;
+    print(c);
+    c = 90;
+    print(c);
+}

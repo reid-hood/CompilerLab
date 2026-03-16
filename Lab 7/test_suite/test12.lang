@@ -1,0 +1,10 @@
+// Reid Hood - Test IF statement without ELSE
+program
+{
+    int x;
+    x = 5;
+    if (x > 3)
+        print(100);
+    endif;
+    print(200);
+}

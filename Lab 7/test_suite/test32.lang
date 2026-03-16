@@ -1,0 +1,22 @@
+// Reid Hood - Test passing array to function (extra credit)
+program
+{
+    int sum_array(array int arr)
+    {
+        int result;
+        result = arr[0] + arr[1] + arr[2] + arr[3] + arr[4];
+        return result;
+    }
+
+    array int [5] myarray;
+    int sum;
+
+    myarray[0] = 5;
+    myarray[1] = 10;
+    myarray[2] = 15;
+    myarray[3] = 20;
+    myarray[4] = 25;
+
+    sum = sum_array(myarray);
+    print(sum);
+}

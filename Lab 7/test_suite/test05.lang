@@ -1,0 +1,6 @@
+// Reid Hood - Test modulo operator and mixed arithmetic
+program
+{
+    print(17 % 5);
+    print(10 * 2 + 3);
+}

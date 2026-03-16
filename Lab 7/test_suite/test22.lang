@@ -1,0 +1,11 @@
+// Reid Hood - Test function with single parameter
+program
+{
+    int double_it(int x)
+    {
+        return x * 2;
+    }
+
+    print(double_it(5));
+    print(double_it(10));
+}

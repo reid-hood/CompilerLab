@@ -1,0 +1,22 @@
+// Reid Hood - Test complex nested if-else-if with multiple calls
+program
+{
+    int classify(int num)
+    {
+        if (num < 5)
+            return 1;
+        endif;
+        if (num < 10)
+            return 2;
+        endif;
+        if (num < 15)
+            return 3;
+        endif;
+        return 4;
+    }
+
+    print(classify(0));
+    print(classify(5));
+    print(classify(10));
+    print(classify(15));
+}

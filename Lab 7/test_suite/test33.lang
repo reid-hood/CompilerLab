@@ -1,0 +1,7 @@
+// Reid Hood - Test PRINTS statement for string output
+program
+{
+    prints("Hello");
+    print(42);
+    prints("World");
+}

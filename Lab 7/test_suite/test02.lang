@@ -1,0 +1,7 @@
+// Reid Hood - Test variable declaration, assignment and print
+program
+{
+    int x;
+    x = 42;
+    print(x);
+}

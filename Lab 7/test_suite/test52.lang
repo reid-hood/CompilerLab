@@ -1,0 +1,18 @@
+// Reid Hood - Test char array operations
+// Tests that char arrays use PUSHCVARIND/POPCVARIND for 1-byte elements
+program
+{
+    array char [5] letters;
+    int i;
+    
+    letters[0] = 65;
+    letters[1] = 66;
+    letters[2] = 67;
+    
+    i = 0;
+    while (i < 3)
+    {
+        print(letters[i]);
+        i = i + 1;
+    }
+}

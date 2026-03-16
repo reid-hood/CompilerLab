@@ -1,0 +1,20 @@
+// Reid Hood - Test function multiple returns with early exits
+program
+{
+    int early_return(int x)
+    {
+        if (x < 2)
+            return 100;
+        endif;
+
+        if (x < 8)
+            return 200;
+        endif;
+
+        return 300;
+    }
+
+    print(early_return(0));
+    print(early_return(5));
+    print(early_return(10));
+}

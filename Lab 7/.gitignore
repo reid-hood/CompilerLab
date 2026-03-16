@@ -1,0 +1,22 @@
+# Compiled executable
+lang
+
+# Generated lex/yacc files
+langlex.c
+langparse.c
+langparse.h
+
+# Assembly output files
+*.sl
+*.slb
+!io320.sl
+
+# Temporary files
+out
+langout*
+
+# Object files
+*.o
+
+# Backup files
+*.backup

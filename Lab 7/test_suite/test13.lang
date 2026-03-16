@@ -1,0 +1,10 @@
+// Reid Hood - Test IF statement that doesn't execute
+program
+{
+    int x;
+    x = 2;
+    if (x > 3)
+        print(100);
+    endif;
+    print(200);
+}

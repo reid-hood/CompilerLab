@@ -1,0 +1,16 @@
+// Reid Hood - Test multiple variable types and operations
+program
+{
+    int a;
+    int b;
+    int c;
+    
+    a = 5;
+    b = 3;
+    c = a + b;
+    
+    print(a);
+    print(b);
+    print(c);
+    print(a * b - c);
+}

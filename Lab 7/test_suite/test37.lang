@@ -1,0 +1,36 @@
+// Reid Hood - Test function returning calculated value
+program
+{
+    int fibonacci(int n)
+    {
+        int a;
+        int b;
+        int temp;
+        int count;
+
+        if (n == 0)
+            return 0;
+        endif;
+
+        if (n == 1)
+            return 1;
+        endif;
+
+        a = 0;
+        b = 1;
+        count = 1;
+
+        while (count < n)
+        {
+            temp = a + b;
+            a = b;
+            b = temp;
+            count = count + 1;
+        }
+
+        return b;
+    }
+
+    print(fibonacci(6));
+    print(fibonacci(7));
+}

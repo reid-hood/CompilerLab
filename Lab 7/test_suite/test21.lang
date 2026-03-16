@@ -1,0 +1,11 @@
+// Reid Hood - Test function declaration and call with no parameters
+program
+{
+    int foo()
+    {
+        print(100);
+        return 42;
+    }
+
+    print(foo());
+}

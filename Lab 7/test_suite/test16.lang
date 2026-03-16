@@ -1,0 +1,12 @@
+// Reid Hood - Test WHILE loop with simple iteration
+program
+{
+    int i;
+    i = 0;
+    while (i < 3)
+    {
+        print(i);
+        i = i + 1;
+    }
+    print(100);
+}

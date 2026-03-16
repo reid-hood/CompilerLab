@@ -1,0 +1,5 @@
+// Reid Hood - Test basic print of integer literals
+program
+{
+    print(1);
+}

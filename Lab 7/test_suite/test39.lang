@@ -1,0 +1,16 @@
+// Reid Hood - Test zero and negative numbers in calculations
+program
+{
+    int neg;
+    int zero;
+    
+    neg = -10;
+    zero = 0;
+    
+    print(neg);
+    print(zero);
+    print(neg + 5);
+    print(zero - 5);
+    print(neg * -1);
+    print(zero == 0);
+}

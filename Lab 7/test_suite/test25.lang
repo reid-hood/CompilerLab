@@ -1,0 +1,16 @@
+// Reid Hood - Test nested function calls
+program
+{
+    int add(int a, int b)
+    {
+        return a + b;
+    }
+
+    int triple(int x)
+    {
+        return x * 3;
+    }
+
+    print(triple(5));
+    print(add(triple(2), triple(3)));
+}

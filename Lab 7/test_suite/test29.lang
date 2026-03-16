@@ -1,0 +1,15 @@
+// Reid Hood - Test array with expression index
+program
+{
+    array int [10] data;
+    int index;
+    
+    data[0] = 100;
+    data[1] = 200;
+    data[2] = 300;
+    data[3] = 400;
+    
+    index = 1;
+    print(data[index + 1]);
+    print(data[index * 2]);
+}

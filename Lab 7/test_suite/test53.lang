@@ -1,0 +1,18 @@
+// Reid Hood - Test struct variable declaration and field access
+// Tests struct fields as lval (assignment) and rval (reading)
+program
+{
+    struct {
+        int x;
+        int y;
+    } Point;
+    
+    Point p;
+    
+    p.x = 100;
+    p.y = 200;
+    
+    print(p.x);
+    print(p.y);
+    print(p.x + p.y);
+}

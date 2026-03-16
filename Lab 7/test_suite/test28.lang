@@ -1,0 +1,17 @@
+// Reid Hood - Test array with variable index
+program
+{
+    array int [10] arr;
+    int i;
+    
+    i = 0;
+    while (i < 5)
+    {
+        arr[i] = i * 10;
+        i = i + 1;
+    }
+    
+    print(arr[0]);
+    print(arr[2]);
+    print(arr[4]);
+}
